@@ -1,4 +1,4 @@
-# Hot-Monkey-Engine
+# Hot-Monkey-Engine (WIP)
 
 Python pipelined webscraping library that revolves around handling JavaScript scraping alongside HTML scraping. This wraps around the selenium driver to give an easier to use framework for webscraping. This library handles each pipeline item as a 'map-reduce' like sequence where you can 'map' UI data into an object and 'reduce' the data from it. However, unlike other webscraping libraries, this handles the pipeline in a more functional approach which removes a lot of the boiler plate code and complexity you get from building classes in larger pipelines as well making it much easier for people to dive into this library.
 
@@ -29,7 +29,7 @@ await hme.request('https://example.com')
 
 unquie_tag_count = hme.scrape_elements() \
     .map(lambda tagname: (tagname, 1)) \
-    .reduceBykey(lambda a, b: a + b)
+    .reduceBytag(lambda a, b: a + b)
 
 print(unquie_tag_count)
 ```
