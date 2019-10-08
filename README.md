@@ -23,7 +23,7 @@ Once installed, you can call it as shown in the example below which will simply 
 ```python
 import hot-monkey-engine as hme
 
-hme.config( browser = "$PathToHeadlessBrowser")
+# hme.config()
 
 await hme.request('https://example.com')
 
@@ -36,7 +36,21 @@ print(unquie_tag_count)
 
 ## Configuration
 
-pass
+There are a few configuration settings available so that you can use what ever browser you want.
+
+### Changing Browsers
+
+By default, when the code runs, it will automatically download ########## browser. It will store this browser in user directory. It will link this path by setting an enviroment variable of $SCRAPEBROWSER to this location. Though you must accept it in terminal.
+
+You can change this to point to another browser locally as long as you either set the enviorment path for $SCRAPEBROWSER to the path of your chosen browser (as long as it is compatible with selenium).
+
+You can also change the directory via code as well setting this path in code as seen below. This allows you to be very flexible with the browser you use and making it more shippable to other platforms.
+
+```python
+import hot-monkey-engine as hme
+
+hme.config( browser = "/path/to/browser")
+```
 
 ## Examples
 
