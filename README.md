@@ -105,4 +105,4 @@ pass
 
 ## Troubleshooting
 
-pass
+If there is an issues please refer to the QA (URL_HERE), wiki (URL_HERE), or send me an email at EMAILSETUP@EMAIL.COM
