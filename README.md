@@ -1,14 +1,14 @@
 # Hot-Monkey-Engine (WIP)
 
-Python pipelined webscraping library that revolves around handling JavaScript scraping alongside HTML scraping. This wraps around the selenium driver to give an easier to use framework for webscraping. This library handles each pipeline item as a 'map-reduce' like sequence where you can 'map' UI data into an object and 'reduce' the data from it. However, unlike other webscraping libraries, this handles the pipeline in a more functional approach which removes a lot of the boiler plate code and complexity you get from building classes in larger pipelines as well making it much easier for people to dive into this library.
+Hot-Monkey-Engine is a Python pipelined webscraping library that revolves around handling JavaScript scraping alongside HTML scraping. Hot-Monkey-Engine wraps around the selenium driver to give an easier to use framework for webscraping. Hot-Monkey-Engine handles each pipeline item as a 'map-reduce' like sequence where you can 'map' UI data into an object and 'reduce' the data from it. However, unlike other webscraping libraries, Hot-Monkey-Engine handles the pipeline in a more functional approach which removes a lot of the boiler plate code and complexity you get from building classes in larger pipelines as well making it much easier for people to dive into Hot-Monkey-Engine.
 
-## About this library
+## About Hot-Monkey-Engine
 
-This library is designed to allow a pipeline to webscraping enforcing scraping logic to be separated from the core application logic. This allows integration with date from multiple sites/pages to be handled to return a list of objects which you can use at the other end without the need to merge together.
+Hot-Monkey-Engine is designed to allow a pipeline to webscraping enforcing scraping logic to be separated from the core application logic. Hot-Monkey-Engine allows integration with date from multiple sites/pages to be handled to return a list of objects which you can use at the other end without the need to merge together.
 
-This library also tries to tackle pages where certain features are hidden behind JavaScript allowing more data to be accessed. This allows even more data to be accessed and allows even more access to automated webscraping without the need to know which URL endpoints to hit.
+Hot-Monkey-Engine also tries to tackle pages where certain features are hidden behind JavaScript allowing more data to be accessed. Hot-Monkey-Engine allows even more data to be accessed and allows even more access to automated webscraping without the need to know which URL endpoints to hit.
 
-Lastly, this library  tries to tackle the ever changing nature of website UI. This library is designed to be able to identify such changes and allows you to resolve it quickly. Since this library is designed to be separated from the application logic, this means that.
+Lastly, Hot-Monkey-Engine  tries to tackle the ever changing nature of website UI. Hot-Monkey-Engineis designed to be able to identify such changes and allows you to resolve it quickly. Since Hot-Monkey-Engine is designed to be separated from the application logic, this means its much easier to intergrate into your application without having it tightly coupled to your application logic.
 
 ## Installation
 
@@ -51,6 +51,47 @@ import hot-monkey-engine as hme
 
 hme.config( browser = "/path/to/browser")
 ```
+
+### JavaScript config
+
+Due to how javascripts calls can last for a period of time (or forever), we need to be able to cut it off after a certain period of time. By default, the config setting waits for the onload javascript to be completed before starting the scraping. Note that all of the waits can be cancelled early within the scraping. This can be done only when a certian criterias are met. These config changes allows you to put a default wait method for all calls to this libary so that your code doesn't get stuck on a piece of javascript forever (or allowing you to do the opposite).
+
+```python
+import hot-monkey-engine as hme
+import hot-monkey-engine.javascript as js
+
+hme.config( javascript_wait = js.WaitUntilComplete)
+```
+
+But this can be changed so that the javascript is disabled from running allowing te HTML to be scraped entirely
+
+```python
+import hot-monkey-engine as hme
+
+hme.config( javascript_enable = False)
+```
+
+We can also allow the javascript to run but not wait for it and start parsing straight away.
+
+```python
+import hot-monkey-engine as hme
+import hot-monkey-engine.javascript as js
+
+hme.config( javascript_wait = js.NeverWait)
+```
+
+We can further wait until the javascript until a certain amount of time in milliseconds.
+
+```python
+import hot-monkey-engine as hme
+import hot-monkey-engine.javascript as js
+
+hme.config( javascript_wait = js.Wait, javascript_wait_time = 100)
+```
+
+### Log Settings
+
+Hot-Monkey-Engine
 
 ## Examples
 
