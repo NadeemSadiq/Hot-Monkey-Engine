@@ -89,9 +89,15 @@ import hot-monkey-engine.javascript as js
 hme.config( javascript_wait = js.Wait, javascript_wait_time = 100)
 ```
 
-### Log Settings
+### Headless mode config
 
-Hot-Monkey-Engine
+Hot-Monkey-Engine allows you to open chosen browser in a viewable state so you can see exactly what is going wrong. By enabling these settings at the start, the browser of your choosing will pop up and animate your scraping by highlighting whats been looked at, whats been scrapped and whats been interacted with. Note you should also set a pause per scrape which will slow the scraping down but it will allow you to visbily see what is going on.
+
+```python
+import hot-monkey-engine as hme
+
+hme.config( headless_mode = True, animate_scraping = True, pause_per_scrape = 100)
+```
 
 ## Examples
 
