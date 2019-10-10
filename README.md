@@ -86,7 +86,7 @@ We can further wait until the javascript until a certain amount of time in milli
 import hot-monkey-engine as hme
 import hot-monkey-engine.javascript as js
 
-hme.config( javascript_wait = js.Wait, javascript_wait_time = 100)
+hme.config( javascript_wait = js.Wait, javascript_wait_time = 1000)
 ```
 
 ### Headless mode config
@@ -96,7 +96,7 @@ Hot-Monkey-Engine allows you to open chosen browser in a viewable state so you c
 ```python
 import hot-monkey-engine as hme
 
-hme.config( headless_mode = True, animate_scraping = True, pause_per_scrape = 100)
+hme.config( headless_mode = True, animate_scraping = True, pause_per_scrape = 1000)
 ```
 
 ## Examples
