@@ -1,0 +1,2 @@
+class SeleniumAdapter:
+    pass
